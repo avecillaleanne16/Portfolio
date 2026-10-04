@@ -1,0 +1,1071 @@
+! <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Leanne Avecilla | Student Portfolio</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+
+    :root {
+      --bg: #0b0712;
+      --bg2: #120b1d;
+      --purple: #8b5cf6;
+      --light-purple: #c4b5fd;
+      --pink: #d946ef;
+      --white: #ffffff;
+      --text: #eee9f8;
+      --muted: #aaa0b9;
+      --card: rgba(255,255,255,0.055);
+      --border: rgba(255,255,255,0.10);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(
+          circle at 80% 10%,
+          rgba(139, 92, 246, 0.25),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 10% 50%,
+          rgba(217, 70, 239, 0.10),
+          transparent 25%
+        ),
+        var(--bg);
+
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    /* ================= NAVIGATION ================= */
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+
+      padding: 20px 0;
+
+      background: rgba(11, 7, 18, 0.75);
+      backdrop-filter: blur(18px);
+
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: var(--purple);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .nav-button {
+      background: linear-gradient(
+        135deg,
+        var(--purple),
+        var(--pink)
+      );
+
+      padding: 10px 18px;
+      border-radius: 25px;
+
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 100px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .small-text {
+      color: var(--light-purple);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3.5rem, 7vw, 6rem);
+      line-height: 1;
+      letter-spacing: -3px;
+      margin-bottom: 25px;
+    }
+
+    h1 span {
+      background: linear-gradient(
+        135deg,
+        #a78bfa,
+        #d946ef
+      );
+
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-description {
+      color: var(--muted);
+      max-width: 580px;
+      font-size: 1.05rem;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 13px 22px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(
+        135deg,
+        var(--purple),
+        var(--pink)
+      );
+
+      box-shadow: 0 10px 30px rgba(139,92,246,0.25);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+    }
+
+    /* ================= PROFILE ================= */
+
+    .profile-container {
+      position: relative;
+    }
+
+    .profile-card {
+      position: relative;
+
+      padding: 35px;
+
+      border-radius: 30px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(139,92,246,0.18),
+          rgba(255,255,255,0.03)
+        );
+
+      border: 1px solid var(--border);
+
+      box-shadow:
+        0 30px 80px rgba(0,0,0,0.4);
+
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .profile-card::before {
+      content: "";
+
+      position: absolute;
+
+      width: 220px;
+      height: 220px;
+
+      background: var(--purple);
+
+      filter: blur(100px);
+
+      opacity: 0.25;
+
+      top: -80px;
+      right: -60px;
+    }
+
+    .profile-image {
+      width: 190px;
+      height: 190px;
+
+      margin: auto auto 25px;
+
+      border-radius: 50%;
+
+      border: 5px solid rgba(255,255,255,0.1);
+
+      object-fit: cover;
+
+      background: linear-gradient(
+        135deg,
+        var(--purple),
+        var(--pink)
+      );
+
+      display: block;
+    }
+
+    .profile-card h2 {
+      font-size: 1.6rem;
+      margin-bottom: 5px;
+    }
+
+    .profile-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .location {
+      margin-top: 15px;
+      color: var(--light-purple) !important;
+    }
+
+    /* ================= SECTIONS ================= */
+
+    section {
+      padding: 110px 0;
+    }
+
+    .section-title {
+      margin-bottom: 45px;
+    }
+
+    .section-title small {
+      color: var(--light-purple);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+
+    .section-title h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 2.8rem;
+      margin-top: 8px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      max-width: 650px;
+      margin-top: 10px;
+    }
+
+    /* ================= ABOUT ================= */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .about-card {
+      padding: 30px;
+
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      border-radius: 20px;
+
+      transition: 0.3s;
+    }
+
+    .about-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(167,139,250,0.4);
+    }
+
+    .about-card h3 {
+      margin-bottom: 12px;
+      color: var(--light-purple);
+    }
+
+    .about-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* ================= EDUCATION ================= */
+
+    .education {
+      padding: 30px;
+
+      border-radius: 20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(139,92,246,0.15),
+          rgba(217,70,239,0.05)
+        );
+
+      border: 1px solid var(--border);
+    }
+
+    .education h3 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .education .school {
+      color: var(--light-purple);
+      font-weight: 600;
+    }
+
+    .education p {
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    /* ================= TRAINING ================= */
+
+    .training-card {
+      position: relative;
+
+      padding: 35px;
+
+      border-radius: 22px;
+
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      overflow: hidden;
+    }
+
+    .training-card::after {
+      content: "";
+
+      position: absolute;
+
+      width: 150px;
+      height: 150px;
+
+      background: var(--pink);
+
+      opacity: 0.12;
+
+      border-radius: 50%;
+
+      filter: blur(50px);
+
+      right: -30px;
+      top: -30px;
+    }
+
+    .date {
+      display: inline-block;
+
+      padding: 7px 12px;
+
+      background: rgba(139,92,246,0.15);
+
+      color: var(--light-purple);
+
+      border-radius: 20px;
+
+      font-size: 0.75rem;
+
+      margin-bottom: 18px;
+    }
+
+    .training-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .training-card p {
+      color: var(--muted);
+      max-width: 750px;
+    }
+
+    .training-list {
+      margin-top: 20px;
+
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+
+      gap: 15px;
+    }
+
+    .training-item {
+      padding: 15px;
+
+      background: rgba(255,255,255,0.04);
+
+      border-radius: 12px;
+
+      color: #d8d0e3;
+
+      font-size: 0.85rem;
+    }
+
+    /* ================= SKILLS ================= */
+
+    .skills {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4,1fr);
+
+      gap: 15px;
+    }
+
+    .skill {
+      padding: 25px;
+
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      border-radius: 18px;
+
+      text-align: center;
+
+      transition: 0.3s;
+    }
+
+    .skill:hover {
+      transform: translateY(-6px);
+
+      background: rgba(139,92,246,0.08);
+
+      border-color: rgba(167,139,250,0.35);
+    }
+
+    .skill-icon {
+      font-size: 1.8rem;
+
+      margin-bottom: 12px;
+    }
+
+    .skill h3 {
+      font-size: 1rem;
+    }
+
+    .skill p {
+      color: var(--muted);
+
+      font-size: 0.75rem;
+
+      margin-top: 5px;
+    }
+
+    /* ================= GOALS ================= */
+
+    .goal {
+      text-align: center;
+
+      padding: 70px 30px;
+
+      border-radius: 30px;
+
+      border: 1px solid var(--border);
+
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(139,92,246,0.18),
+          transparent 65%
+        );
+    }
+
+    .goal h2 {
+      font-family: "Playfair Display", serif;
+
+      font-size: 3rem;
+
+      margin-bottom: 15px;
+    }
+
+    .goal h2 span {
+      color: var(--light-purple);
+    }
+
+    .goal p {
+      max-width: 650px;
+
+      margin: auto;
+
+      color: var(--muted);
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      padding: 30px 0;
+
+      border-top: 1px solid var(--border);
+
+      color: var(--muted);
+
+      font-size: 0.8rem;
+    }
+
+    .footer-content {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 800px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 140px;
+      }
+
+      h1 {
+        font-size: 4rem;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .training-list {
+        grid-template-columns: 1fr;
+      }
+
+      .goal h2 {
+        font-size: 2.2rem;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      h1 {
+        font-size: 3.2rem;
+      }
+
+      .skills {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-image {
+        width: 160px;
+        height: 160px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= NAVIGATION ================= -->
+
+  <nav>
+    <div class="container nav-container">
+
+      <div class="logo">
+        L<span>.</span>A
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#training">Training</a></li>
+        <li><a href="#skills">Skills</a></li>
+      </ul>
+
+      <a href="#contact" class="nav-button">
+        Contact
+      </a>
+
+    </div>
+  </nav>
+
+
+  <!-- ================= HERO ================= -->
+
+  <section class="hero">
+
+    <div class="container hero-grid">
+
+      <div>
+
+        <div class="small-text">
+          Student Portfolio
+        </div>
+
+        <h1>
+          Hi, I'm<br>
+          <span>Leanne.</span>
+        </h1>
+
+        <p class="hero-description">
+          I am a Grade 11 HUMSS student from Allacapan Institute.
+          I am passionate about learning, developing my skills,
+          meeting new challenges, and gaining experiences that
+          will help me grow as a person and as a student.
+        </p>
+
+        <div class="buttons">
+
+          <a
+            href="#about"
+            class="btn btn-primary"
+          >
+            Explore My Portfolio
+          </a>
+
+          <a
+            href="https://canva.link/x1tbmmqfvm4398m"
+            class="btn btn-secondary"
+          >
+            My Resume
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- PROFILE CARD -->
+
+      <div class="profile-container">
+
+        <div class="profile-card">
+
+          <!--
+            Replace "profile.jpg" with your own photo.
+            Example:
+            <img src="leanne.jpg" ...>
+          -->
+
+          <img
+            src="lean.png"
+            alt="Photo of Leanne Avecilla"
+            class="profile-image"
+          >
+
+          <h2>
+            Leanne Avecilla
+          </h2>
+
+          <p>
+            Grade 11 HUMSS Student
+          </p>
+
+          <p class="location">
+            📍 Tamboli, Allacapan, Cagayan
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= ABOUT ================= -->
+
+  <section id="about">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <small>
+          About Me
+        </small>
+
+        <h2>
+          Get to know me
+        </h2>
+
+        <p>
+          A little introduction about who I am,
+          what I value, and what I am currently doing.
+        </p>
+
+      </div>
+
+
+      <div class="about-grid">
+
+        <div class="about-card">
+
+          <h3>
+            👋 Who I Am
+          </h3>
+
+          <p>
+            My name is Leanne Avecilla. I am a student from
+            Tamboli, Allacapan, Cagayan. I am currently taking
+            the Humanities and Social Sciences (HUMSS) strand
+            as a Grade 11 student at Allacapan Institute.
+          </p>
+
+        </div>
+
+
+        <div class="about-card">
+
+          <h3>
+            🌱 What I Value
+          </h3>
+
+          <p>
+            I value education, teamwork, responsibility,
+            communication, and continuous self-improvement.
+            I believe that every experience can teach us
+            something valuable.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= EDUCATION ================= -->
+
+  <section id="education">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <small>
+          My Education
+        </small>
+
+        <h2>
+          Academic Journey
+        </h2>
+
+      </div>
+
+
+      <div class="education">
+
+        <h3>
+          Allacapan Institute
+        </h3>
+
+        <div class="school">
+          Grade 11 — HUMSS
+        </div>
+
+        <p>
+          Humanities and Social Sciences (HUMSS)
+        </p>
+
+        <p>
+          📍 Allacapan, Cagayan
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= TRAINING ================= -->
+
+  <section id="training">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <small>
+          Experience
+        </small>
+
+        <h2>
+          Auxiliary Training Program
+        </h2>
+
+        <p>
+          An experience that allowed me to learn about
+          discipline, teamwork, responsibility, and
+          cooperation.
+        </p>
+
+      </div>
+
+
+      <div class="training-card">
+
+        <span class="date">
+          June 21
+        </span>
+
+        <h3>
+          Auxiliary Training Program
+        </h3>
+
+        <p>
+          I joined the Auxiliary Training Program on June 21.
+          Through this experience, I had an opportunity to
+          participate in training activities and develop
+          important values such as discipline, teamwork,
+          responsibility, and following instructions.
+        </p>
+
+
+        <div class="training-list">
+
+          <div class="training-item">
+            🤝 Teamwork
+          </div>
+
+          <div class="training-item">
+            🎯 Discipline
+          </div>
+
+          <div class="training-item">
+            ⭐ Responsibility
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= SKILLS ================= -->
+
+  <section id="skills">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <small>
+          What I Can Do
+        </small>
+
+        <h2>
+          My Skills
+        </h2>
+
+        <p>
+          Skills that I continue to develop through
+          school, activities, and everyday experiences.
+        </p>
+
+      </div>
+
+
+      <div class="skills">
+
+        <div class="skill">
+
+          <div class="skill-icon">
+            💬
+          </div>
+
+          <h3>
+            Communication
+          </h3>
+
+          <p>
+            Expressing ideas clearly and respectfully.
+          </p>
+
+        </div>
+
+
+        <div class="skill">
+
+          <div class="skill-icon">
+            🤝
+          </div>
+
+          <h3>
+            Teamwork
+          </h3>
+
+          <p>
+            Working and cooperating with others.
+          </p>
+
+        </div>
+
+
+        <div class="skill">
+
+          <div class="skill-icon">
+            💡
+          </div>
+
+          <h3>
+            Creativity
+          </h3>
+
+          <p>
+            Exploring ideas and creative solutions.
+          </p>
+
+        </div>
+
+
+        <div class="skill">
+
+          <div class="skill-icon">
+            📚
+          </div>
+
+          <h3>
+            Willingness to Learn
+          </h3>
+
+          <p>
+            Continuously learning and improving.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= GOAL ================= -->
+
+  <section id="contact">
+
+    <div class="container">
+
+      <div class="goal">
+
+        <h2>
+          Learning today,
+          <span>growing tomorrow.</span>
+        </h2>
+
+        <p>
+          My goal is to continue learning, gain meaningful
+          experiences, improve my skills, and prepare myself
+          for the future. Every step of my journey is an
+          opportunity to become a better version of myself.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <div class="container footer-content">
+
+      <p>
+        © 2026 Leanne Avecilla
+      </p>
+
+      <p>
+        Grade 11 HUMSS • Allacapan Institute
+      </p>
+
+    </div>
+
+  </footer>
+
+
+</body>
+</html>
